@@ -16,7 +16,7 @@
 -- • Remote future: control scene, AIs, spawn extra geometry and so on.
 
 -- Event configuration:
-local requiredSpeed = 150
+local requiredSpeed = 120
 
 
 -- This function is called before event activates. Once it returns true, it’ll run:
