@@ -16,7 +16,7 @@
 -- • Remote future: control scene, AIs, spawn extra geometry and so on.
 
 -- Event configuration:
-local requiredSpeed = 120
+local requiredSpeed = 150
 
 
 -- This function is called before event activates. Once it returns true, it’ll run:
@@ -151,18 +151,8 @@ end
 local messages = {}
 local glitter = {}
 local glitterCount = 0
--- Mesaj gönderme kontrolü için değişkenler
-local lastChatMessageTime = 0
-local chatMessageCooldown = 2 -- İki saniye bekleme süresi
 
 function addMessage(text, mood)
-    -- Mesaj gönderme kontrolü
-    local currentTime = ac.getCarState(1).currentLapTime
-    if currentTime - lastChatMessageTime < chatMessageCooldown then
-        return
-    end
-    lastChatMessageTime = currentTime
-
     for i = math.min(#messages + 1, 4), 2, -1 do
         messages[i] = messages[i - 1]
         messages[i].targetPos = i
@@ -293,10 +283,6 @@ local speedWarning = 0
 
         ui.popFont()
         ui.popStyleVar()
-
-        -- Görsel öğeler
-        -- Arkaplan
-        ui.drawRectFilled(vec2(0, 0), vec2(uiState.resolution.x, uiState.resolution.y), rgbm(0, 0, 0, 0.5), 1)
 
         ui.endTransparentWindow()
     end
