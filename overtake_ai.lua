@@ -261,7 +261,7 @@ local speedWarning = 0
         ui.pushStyleVar(ui.StyleVar.Alpha, speedWarning)
         ui.setCursorY(0)
         ui.pushFont(ui.Font.Main)
-        ui.textColored("Hızını " .. requiredSpeed .. " km/s üstünde tut:", colorAccent)
+        ui.textColored("Hızını " .. requiredSpeed .. " km üstünde tut:", colorAccent)
         speedMeter(ui.getCursor() + vec2(-9 * 0.5, 4 * 0.2))
 
         ui.popFont()
