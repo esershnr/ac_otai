@@ -77,15 +77,15 @@ function script.update(dt)
         local car = ac.getCarState(i)
         local state = carsState[i]
 
-        if car.pos.closerToThan(player.pos, 10) then
+        if car.pos:closerToThan(player.pos, 10) then
             local drivingAlong = math.dot(car.look, player.look) > 0.2
             if not drivingAlong then
                 state.drivingAlong = false
 
-                if not state.nearMiss and car.pos.closerToThan(player.pos, 3) then
+                if not state.nearMiss and car.pos:closerToThan(player.pos, 3) then
                     state.nearMiss = true
 
-                    if car.pos.closerToThan(player.pos, 2.5) then
+                    if car.pos:closerToThan(player.pos, 2.5) then
                         comboMeter = comboMeter + 3
                         addMessage("Yaladın arabayı!", 1)
                     else
