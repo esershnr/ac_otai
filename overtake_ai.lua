@@ -1,5 +1,5 @@
 -- Event configuration:
-local requiredSpeed = 120
+local requiredSpeed = 100
 
 
 -- This function is called before event activates. Once it returns true, it’ll run:
